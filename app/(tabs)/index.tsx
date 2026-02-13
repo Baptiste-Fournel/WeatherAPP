@@ -72,7 +72,7 @@ export default function HomeScreen() {
         weathercode: current.weathercode,
       });
     } catch {
-      setSearchResult({ name: 'Erreur', temperatureLabel: 'API indisponible' });
+      setSearchResult({ name: 'Aucun résultat', temperatureLabel: 'l API à recontré une erreur' });
     }
   }
 

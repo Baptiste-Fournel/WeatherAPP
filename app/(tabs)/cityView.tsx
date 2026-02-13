@@ -6,8 +6,8 @@ import ForecastDay from '@/components/forecast-day';
 import { ThemedText } from '@/components/themed-text';
 import { useThemeColor } from '@/hooks/use-theme-color';
 import { iconForCode } from '@/utils/weather';
-import { getCityLocation, getSevenDaysForecast } from './openMeteo';
 import { isFavoriteCity, toggleFavoriteCity } from '@/utils/storage';
+import { getCityLocation, getSevenDaysForecast } from './openMeteo';
 
 type ForecastDayModel = {
     date: string;
@@ -83,7 +83,7 @@ export default function CityView() {
                             </ThemedText>
 
                             <ThemedText style={styles.todayRange}>
-                                {Math.round(forecastDays[0].temp_max)}° / {Math.round(forecastDays[0].temp_min)}°
+                                {forecastDays[0] ? `${Math.round(forecastDays[0].temp_max)}° / ${Math.round(forecastDays[0].temp_min)}°` : '—'}
                             </ThemedText>
                         </View>
                     </View>

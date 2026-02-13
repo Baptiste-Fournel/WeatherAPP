@@ -60,7 +60,7 @@ export async function getSevenDaysForecast(latitude: number, longitude: number):
 
     const data = await response.json();
 
-    const days: DailyForecast[] = data.daily.time.map((date: string, index: number) => ({
+    const days: DailyForecast[] = (data.daily?.time || []).map((date: string, index: number) => ({
         date,
         weathercode: data.daily.weathercode[index],
         temp_max: data.daily.temperature_2m_max[index],
