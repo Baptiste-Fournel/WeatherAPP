@@ -32,7 +32,7 @@ export async function getCityLocation(cityName: string): Promise<CityLocation> {
 
 export async function getCurrentWeather(latitude: number, longitude: number): Promise<CurrentWeather> {
     const response = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=Europe/Paris`
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto`
     );
     const data = await response.json();
 
@@ -55,7 +55,7 @@ export async function getSevenDaysForecast(latitude: number, longitude: number):
     const response = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}` +
         `&daily=weathercode,temperature_2m_max,temperature_2m_min` +
-        `&current_weather=true&timezone=Europe/Paris&start_date=${startDate}&end_date=${endDate}`
+        `&current_weather=true&timezone=auto&start_date=${startDate}&end_date=${endDate}`
     );
 
     const data = await response.json();
